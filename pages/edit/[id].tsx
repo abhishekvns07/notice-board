@@ -30,15 +30,17 @@ export default function EditNotice() {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <Loader2 className="w-10 h-10 animate-spin text-blue-600" />
+      <div className="flex flex-col justify-center items-center h-64 gap-4">
+        <Loader2 className="w-12 h-12 animate-spin text-purple-400" />
+        <p className="text-slate-400 animate-pulse">Loading notice...</p>
       </div>
     );
   }
 
   if (error || !notice) {
     return (
-      <div className="text-center p-8 bg-red-50 rounded-xl text-red-700 font-medium max-w-2xl mx-auto shadow-sm border border-red-100">
+      <div className="text-center p-8 bg-red-900/20 backdrop-blur-md rounded-2xl text-red-400 font-medium max-w-2xl mx-auto border border-red-500/20 shadow-[0_0_30px_rgba(239,68,68,0.1)]">
+        <span className="block text-4xl mb-4">⚠️</span>
         {error || 'Notice not found'}
       </div>
     );
