@@ -15,8 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ],
       });
       return res.status(200).json(notices);
-    } catch (error) {
-      return res.status(500).json({ error: 'Failed to fetch notices' });
+    } catch (error: any) {
+      return res.status(500).json({ error: 'Failed to fetch notices', details: String(error?.message || error) });
     }
   } else if (req.method === 'POST') {
     try {

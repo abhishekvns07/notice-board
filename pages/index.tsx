@@ -23,8 +23,8 @@ export default function Home() {
       setIsLoading(true);
       const { data } = await axios.get('/api/notices');
       setNotices(data);
-    } catch (err) {
-      setError('Failed to fetch notices');
+    } catch (err: any) {
+      setError(err.response?.data?.details || 'Failed to fetch notices');
     } finally {
       setIsLoading(false);
     }
